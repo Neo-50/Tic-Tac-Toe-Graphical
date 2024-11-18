@@ -23,7 +23,7 @@ def run_game():
                 if gf.player_move(tset.board, tset.width, tset.height, event):
                     player_turn = False  # Switch to AI's turn if a move was made
 
-        # AI's turn (outside event loop)
+        # AI's turn
         if not player_turn:  # Process AI logic only once per frame
             gf.ai_move(tset.board)
             player_turn = True  # Switch back to player's turn
@@ -54,12 +54,7 @@ def run_game():
         pygame.display.flip()
 
         # Set the framerate
-        pygame.time.Clock().tick(30)
+        pygame.time.Clock().tick(10)
 
 
-
-try:
-    run_game()
-except Exception as e:
-    print("An error occurred:", e)
-
+run_game()
