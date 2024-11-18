@@ -2,7 +2,7 @@ import pygame
 
 
 class Settings:
-    """A class to store all settings for Rotating Right Triangle."""
+    """A class to store all settings for Tic Tac Toe Graphical."""
 
     def __init__(self):
         """Initialize the game's static settings."""
@@ -13,14 +13,18 @@ class Settings:
         # Create the window
         self.window = pygame.display.set_mode((self.width, self.height))
 
+        # Grid state: 3x3 matrix to track Xs and Os
+        self.board = [[None for _ in range(3)] for _ in range(3)]
+
         # Set the color of the lines
         self.colors = {
-            'black': (0, 0, 0),
-            'green': (0, 255, 0),
             'blue': (0, 0, 255),
             'red': (255, 0, 0),
             'white': (255, 255, 255)
         }
+
+        # Create a font for the text
+        self.font = pygame.font.SysFont(None, 200)
 
         # Vertical lines
         self.line1_start_x, self.line1_start_y = self.width // 3, 0
